@@ -1,10 +1,10 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const path = require('path');
-const lessFiles = './less/**/*.less';
+const fileLess = './less/style.less';
 
 gulp.task('less', () => {
-  return gulp.src(lessFiles)
+  return gulp.src(fileLess)
     .pipe(less({
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
@@ -12,7 +12,7 @@ gulp.task('less', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(lessFiles, gulp.parallel('less'));
+  gulp.watch(fileLess, gulp.parallel('less'));
 });
 
 gulp.task('default', gulp.parallel('less', 'watch'));
