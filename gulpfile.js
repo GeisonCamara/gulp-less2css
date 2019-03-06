@@ -1,14 +1,15 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const path = require('path');
-const fileLess = './less/style.less';
+const fileLess = './../less/style.less';
+const pathDest = './../css';
 
 gulp.task('less', () => {
   return gulp.src(fileLess)
     .pipe(less({
       paths: [path.join(__dirname, 'less', 'includes')]
     }))
-    .pipe(gulp.dest('./../css'));
+    .pipe(gulp.dest(pathDest));
 });
 
 gulp.task('watch', () => {
